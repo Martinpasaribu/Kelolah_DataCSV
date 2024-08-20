@@ -7,11 +7,11 @@ export const createdata = async (req, res) => {
         for (const data of dataArray) {
             const { id, nama, email, telepon, alamat } = data;
 
-            // Normalize email and telepon to ensure consistency
+        
             const normalizedEmail = email.trim().toLowerCase();
             const normalizedTelepon = telepon.replace(/\s+/g, '');
 
-            // Periksa apakah data dengan email, telepon, atau id yang sama sudah ada
+
             const existingData = await DataModel.findOne({ 
                 $or: [
                     { email: normalizedEmail }, 
@@ -21,7 +21,7 @@ export const createdata = async (req, res) => {
             });
 
             if (!existingData) {
-                // Jika data tidak ditemukan, simpan data baru
+        
                 await DataModel.create({
                     id: id,
                     nama: nama,
