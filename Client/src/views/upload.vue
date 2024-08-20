@@ -13,15 +13,15 @@
       </div>
 
 
-      <div class="flex w-[21rem] md:w-[25rem] h-[4rem] justify-center items-center gap-2 ">
+      <div class="flex w-[18rem] md:w-[25rem] h-[4rem] justify-center items-center gap-2 md:gap-2 ">
                   
-        <button @click="displayAjukan" class=" flex w-[8rem] h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white z-21 ">
-              <h1 class=" mx-auto text-md font-semibold "> <span class="text-xl">+</span> Upload CSV</h1>
+        <button @click="displayAjukan" class=" flex w-[7rem] h-[2rem] md:w-[8rem] md:h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white z-21 ">
+              <h1 class=" mx-auto font-semibold "> <span class="text-ms md:text-xl">+</span> Upload CSV</h1>
         </button>
 
-        <div class="w-[15rem] h-[2.5rem] flex ">
+        <div class="w-[11rem] h-[2.5rem] flex ">
             
-            <form class=" w-[12rem] md:w-[15rem] h-[3rem] m-auto ">   
+            <form class=" w-[10rem] md:w-[15rem] h-[3rem]  ">   
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Cari</label>
                 <div class="relative z-10">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -67,7 +67,7 @@
             <th scope="col" class="px-6 py-3">Email</th>
             <th scope="col" class="px-6 py-3">Telepon</th>
             <th scope="col" class="px-6 py-3">Alamat</th>
-            <th scope="col" class="px-6 py-3">Simpan</th>
+            <th scope="col" class="px-6 py-3 text-center">Simpan</th>
         </tr>
         </thead>
 
