@@ -15,8 +15,8 @@
 
       <div class="flex w-[18rem] md:w-[25rem] h-[4rem] justify-center items-center gap-2 md:gap-2 ">
                   
-        <button @click="displayAjukan" class=" flex w-[7rem] h-[2rem] md:w-[8rem] md:h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white z-21 ">
-              <h1 class=" mx-auto font-semibold "> <span class="text-ms md:text-xl">+</span> Upload CSV</h1>
+        <button @click="displayAjukan" class=" flex w-[7rem] h-[2.5rem] md:w-[8rem] md:h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white z-21 ">
+              <h1 class=" mx-auto font-semibold  m-auto"> <span class="text-ms md:text-xl">+</span> Upload CSV</h1>
         </button>
 
         <div class="w-[11rem] h-[2.5rem] flex ">
@@ -32,13 +32,15 @@
                     <input type="search" v-model="cari" id="default-search" class="block w-full p-[10px] ps-10 text-sm text-biru border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Cari pegawai..." required />
              
                     <div :class="{ 'hidden':!cari , 'block w-[15rem] max-h-[10rem] bg-birut p-2 overflow-auto' : cari}" class="absolute ">
-                      <div class="flex item fruit" v-for="fruit in filteredList()" :key="fruit">
+                      <div class="flex item fruit" v-for="fruit in filteredList" :key="fruit.id">
                         <p  @click="handleClick(fruit)" class="text-white cursor-pointer hover:bg-kuning2 hover:text-black w-full">{{ fruit.nama }}</p>
                       </div>
-                      <div class="item error" v-if="cari&&!filteredList().length">
-                        <p>Data tidak ditemukan!</p>
+                      <div class="item error" v-if="cari && !filteredList.length">
+                        <p class="text-white">Data tidak ditemukan!</p>
                       </div>
                     </div>
+
+                    
                 </div>
             </form>
 
@@ -132,36 +134,28 @@
 
 
     
+    
           <!-- Detail Produk -->
-          <figure v-show="showDetail"  class="flex justify-center items-center  z-9 fixed top-[5rem] left-[1rem] w-full  h-[40rem]  animate-status z-20" >
-            <div  v-if="filteredPick" class="flex relative w-[50rem] h-[34rem] bg-biru rounded-xl">
-                  <button @click="closePopup" class="  w-[2.2rem] h-[2rem] font-bold text-xl absolute rounded-full bg-white right-[1rem] md:right-10 top-[2rem] md:top-[2rem] hover:text-red">X</button>
-                  <article v-show="!pesan"  v-for="item in filteredPick" :key="item.uuid"  class="flex flex-col justify-center items-center bg- h-[32rem] w-full m-4 ">
-                      <div class=" flex justify-center items-center  h-full w-full">
-                          <div class=" w-[40rem] h-[24rem]">
-                            <img
-                              :src=" item.foto "
-                              alt="foto"
-                              class=" w-full h-full  object-contain"
-                            />
-                          </div>
-                          <div class="flex justify-around items-center bottom-[11rem] w-full h-[2rem] absolute text-warna1  font-KodeMono font-extrabold text-[1.1rem]">
-                            <span class="bg-black px-3 rounded-lg">Jabatan : {{ item.email }}</span>
-                            <span class="bg-black px-3 rounded-lg">Asal : {{ item.alamat }}</span>
-                          </div>
-                      </div>
-                      <div class="flex flex-col justify-around items-center h-1/2 w-full p-5 gap-4 text-white">
-                          <div class="w-full h-[2rem] text-2xl text-center font-Calistoga"><h1>{{ item.nama }}</h1></div>
-          
-
-                          
-                      </div>
-            
-                  </article>
-
-
-            </div>
-        </figure>
+           
+          <figure v-show="showDetail" class="flex justify-center items-center z-9 fixed top-[5rem] left-[0rem] md:top-[5rem] md:left-[1rem] w-full h-[20rem] md:h-[40rem] animate-status z-20">
+              <div v-if="filteredPick.length" class="flex relative w-[22rem] h-[37rem] top-[5rem] md:w-[50rem] md:h-[34rem] bg-biru rounded-xl">
+                <button @click="closePopup" class="w-[2.2rem] h-[2rem] font-bold text-xl absolute rounded-full bg-white right-[1rem] md:right-10 top-[2rem] md:top-[2rem] hover:text-red">X</button>
+                <article v-for="item in filteredPick" :key="item.id" class="flex flex-col justify-center items-center bg- h-[32rem] w-full m-4">
+                  <div class="flex justify-center items-center h-full w-full">
+                    <div class="w-[20rem] h-[24rem] md:w-[40rem] md:h-[24rem]">
+                      <img src="../assets/user.png" alt="foto" class="w-full h-full object-contain" />
+                    </div>
+                    <div class="flex justify-around items-center bottom-[11rem] w-full h-[2rem] absolute text-warna1 font-KodeMono font-extrabold md:text-[1.1rem] text-[.7rem]">
+                      <span class="bg-black px-3 rounded-lg">Email {{ item.email }}</span>
+                      <span class="bg-black px-3 rounded-lg">Asal {{ item.alamat }}</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-col justify-around items-center h-1/2 w-full p-5 gap-4 text-white">
+                    <div class="w-full h-[2rem] text-2xl text-center font-Calistoga"><h1>{{ item.nama }}</h1></div>
+                  </div>
+                </article>
+              </div>
+            </figure>
 
     </div>
 
@@ -210,7 +204,7 @@ export default {
       sortDirection: 'asc',
       filterTime: '',
       filterGender: '',
-      picks : '',  
+      picks : null,  
       picks2 : '',  
       showDetail: false,
 
@@ -220,6 +214,26 @@ export default {
   },
 
   computed : {
+
+     
+    filteredList() {
+      if (!this.jsonData || this.jsonData.length === 0) {
+        return [];
+      }
+
+      const searchTerm = this.cari ? this.cari.toLowerCase() : '';
+
+      return this.jsonData.filter(pegawai =>
+        pegawai && pegawai.nama && pegawai.nama.toLowerCase().includes(searchTerm)
+      );
+    },
+
+    filteredPick() {
+        if (this.picks) {
+          return this.jsonData.filter(item => item.id === this.picks);
+        }
+        return []; // Kembalikan array kosong jika `picks` tidak ada
+      },
 
     filteredAndSortedPegawaiData() {
       // Filtering berdasarkan waktu
@@ -249,10 +263,9 @@ export default {
         return 0;
       });
     },
-    filteredPick() {
-      return this.pegawaiData.filter(item => item.uuid === this.picks);
-     
-    },
+    
+
+
 
 
   }
@@ -324,6 +337,7 @@ methods : {
       this.PopAjukan = false ;
       this.SlideBerhasil = false ;
       this.showDetail = false;
+          this.pesan = false
     },
 
 
@@ -351,36 +365,24 @@ methods : {
 
     displayDetail() {
       this.showDetail = true;
+      console.log('data Pick :',this.picks)
     },
     // closePopup() {
     //   this.showDetail = false;
     //   this.pesan = false
     // },
+
     pick(value){
       this.picks = value,
       console.log('Data Pick : ', value)
     },
 
-    handleClick(item) {
+    handleClick(fruit) {
+      console.log(fruit.id);
       this.displayDetail();
-      this.picks = item.uuid;
-      this.picks2 = item.original_title;
+      this.picks = fruit.id;
     },
 
-
-    filteredList() {
-    // Pastikan jsonData sudah terisi
-    if (!this.jsonData || this.jsonData.length === 0) {
-      return []; // Jika data kosong, kembalikan array kosong
-    }
-    
-    // Pastikan cari didefinisikan dan bukan undefined
-    const searchTerm = this.cari ? this.cari.toLowerCase() : '';
-
-    return this.jsonData.filter(pegawai =>
-      pegawai.nama && pegawai.nama.toLowerCase().includes(searchTerm)
-    );
-  }
 
 
   },
