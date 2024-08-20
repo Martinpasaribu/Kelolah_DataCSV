@@ -2,7 +2,7 @@
   <div class="flex flex-col md:flex-row  bg-gray-200 overflow-hidden ">
 
     <SideBar class=" overflow-hidden"/>
-    <main class=" flex-1 w-full h-screen overflow-hidden m-2">
+    <main class=" flex-1 md:w-full h-screen overflow-hidden m-2">
       <router-view />
     </main>
    

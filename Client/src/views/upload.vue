@@ -52,7 +52,7 @@
 
     </div>
 
-    <div class="relative overflow-x-auto px-2 pt-5 z-10h-[40rem] md:h-[50rem]">
+    <div class="relative overflow-x-auto px-2 pt-5 z-10 h-[40rem] md:h-[50rem]">
 
       <!-- DATA TABLE -->
       <table class="w-full text-sm text-left rtl:text-right text-gray-500 " v-if="jsonData.length">
