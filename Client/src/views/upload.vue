@@ -6,24 +6,24 @@
 
     <div class="w-full h-[5rem] flex justify-between items-center px-2">
 
-      <p v-if="message">{{ message }}</p>
 
-      <div class="relative group flex z-20 w-[8rem] h-[2.5rem] bg-hijauv rounded-md focus:animate-jump border border-birut">
-        <button @click="submitSelectedItems" class=" bg-blue-500 text-white px-4 py-2 rounded focus:animate-jump">Simpan Data</button>
+
+      <div class="relative group flex z-19 w-[5rem] md:w-[8rem] h-[2.5rem] bg-hijauv rounded-md focus:animate-jump border border-birut">
+        <button @click="submitSelectedItems" class=" bg-blue-500 text-white px-4 md:py-2 rounded focus:animate-jump m-auto">Simpan</button>
       </div>
 
 
-      <div class="flex w-[25rem] h-[4rem] justify-center items-center gap-2">
+      <div class="flex w-[21rem] md:w-[25rem] h-[4rem] justify-center items-center gap-2 ">
                   
-        <button @click="displayAjukan" class=" flex w-[8rem] h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white ">
+        <button @click="displayAjukan" class=" flex w-[8rem] h-[2.5rem] bg-white rounded-md border-2 border-birut2 hover:bg-birut  focus:animate-jump text-birut2 hover:text-white z-21 ">
               <h1 class=" mx-auto text-md font-semibold "> <span class="text-xl">+</span> Upload CSV</h1>
         </button>
 
         <div class="w-[15rem] h-[2.5rem] flex ">
             
-            <form class=" w-[15rem] h-[3rem] m-auto">   
+            <form class=" w-[12rem] md:w-[15rem] h-[3rem] m-auto ">   
                 <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Cari</label>
-                <div class="relative z-20">
+                <div class="relative z-10">
                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -31,7 +31,7 @@
                     </div>
                     <input type="search" v-model="cari" id="default-search" class="block w-full p-[10px] ps-10 text-sm text-biru border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Cari pegawai..." required />
              
-                    <div :class="{ 'hidden':!cari , 'block w-[15rem] max-h-[10rem] bg-birut p-2 overflow-auto' : cari}" class="absolute">
+                    <div :class="{ 'hidden':!cari , 'block w-[15rem] max-h-[10rem] bg-birut p-2 overflow-auto' : cari}" class="absolute ">
                       <div class="flex item fruit" v-for="fruit in filteredList()" :key="fruit">
                         <p  @click="handleClick(fruit)" class="text-white cursor-pointer hover:bg-kuning2 hover:text-black w-full">{{ fruit.nama }}</p>
                       </div>
