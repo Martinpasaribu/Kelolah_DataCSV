@@ -235,12 +235,12 @@
 
     
           <!-- Detail Produk -->
-          <figure v-show="showDetail"  class="flex justify-center items-center  z-9 fixed top-[5rem] left-[1rem] w-full  h-[40rem]  animate-status z-20" >
-            <div  v-if="filteredPick" class="flex relative w-[50rem] h-[34rem] bg-biru rounded-xl">
+          <figure v-show="showDetail"  class="flex justify-center items-center  z-9 fixed top-[5rem] left-[0rem] md:top-[5rem] md:left-[1rem] w-full h-[20rem]  md:h-[40rem]  animate-status z-20" >
+            <div  v-if="filteredPick" class="flex relative w-[22rem] h-[37rem] top-[5rem] md:w-[50rem] md:h-[34rem] bg-biru rounded-xl">
                   <button @click="closePopup" class="  w-[2.2rem] h-[2rem] font-bold text-xl absolute rounded-full bg-white right-[1rem] md:right-10 top-[2rem] md:top-[2rem] hover:text-red">X</button>
                   <article v-show="!pesan"  v-for="item in filteredPick" :key="item.uuid"  class="flex flex-col justify-center items-center bg- h-[32rem] w-full m-4 ">
                       <div class=" flex justify-center items-center  h-full w-full">
-                          <div class=" w-[40rem] h-[24rem]">
+                          <div class=" w-[20rem] h-[24rem]  md:w-[40rem] md:h-[24rem]">
                             <img
                                     src="../assets/user.png"
                               alt="foto"
