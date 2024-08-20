@@ -247,9 +247,9 @@
                               class=" w-full h-full  object-contain"
                             />
                           </div>
-                          <div class="flex justify-around items-center bottom-[11rem] w-full h-[2rem] absolute text-warna1  font-KodeMono font-extrabold text-[1.1rem]">
-                            <span class="bg-black px-3 rounded-lg">Email : {{ item.email }}</span>
-                            <span class="bg-black px-3 rounded-lg">Asal : {{ item.alamat }}</span>
+                          <div class="flex justify-around items-center bottom-[11rem] w-full h-[2rem] absolute text-warna1  font-KodeMono font-extrabold  md:text-[1.1rem] text-[.7rem]">
+                            <span class="bg-black px-3 rounded-lg">Email  {{ item.email }}</span>
+                            <span class="bg-black px-3 rounded-lg">Asal  {{ item.alamat }}</span>
                           </div>
                       </div>
                       <div class="flex flex-col justify-around items-center h-1/2 w-full p-5 gap-4 text-white">
