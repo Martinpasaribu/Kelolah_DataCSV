@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const axiosClient2 = axios.create({
-  baseURL: 'https://data-pegawai-server.vercel.app', withCredentials: true
+  baseURL: 'https://manage-data-csv-server.vercel.app', withCredentials: true
 });
 
 // const axiosClient2 = axios.create({
